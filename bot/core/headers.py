@@ -1,0 +1,15 @@
+headers = {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate, br, zstd",
+    "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7,vi;q=0.6",
+    "Content-Type": "application/json",
+    "Host":"api-bits.apps-tonbox.me",
+    "Origin": "https://bits.apps-tonbox.me",
+    "Referer": "https://bits.apps-tonbox.me/",
+    "Priority": "u=1, i",
+    "Sec-Ch-Ua-Mobile": "?1",
+    "Sec-Ch-Ua-Platform": "\"Android\"",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-site",
+}
