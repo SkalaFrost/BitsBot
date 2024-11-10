@@ -12,10 +12,12 @@
 ## Features  
 |                         Feature                          | Supported |
 |:--------------------------------------------------------:|:---------:|
+|                      **API Change Detection**            |     ✅     |
 |                      Multithreading                      |     ✅     |
 |                 Proxy binding to session                 |     ✅     |
-|                      Auto Referral, auto farm, auto claim,auto stask,...                       |     ✅     |
-|              Support for pyrogram .session               |     ✅     |
+|          Auto referral, auto farm, auto claim, auto task |     ✅     |
+|           Intelligent monitoring for API updates         |     ✅     |
+
 
 
 ## [Settings](https://github.com/SkalaFrost/BitsBot/blob/master/.env-example) (I recommend keeping the remaining configurations unchanged.)
