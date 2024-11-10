@@ -282,9 +282,11 @@ class Tapper:
         return await self.make_request(http_client, 'GET', endpoint="/referal_income/collect",params = self.params)
     
     @error_handler
-    async def start_socialtasks(self, http_client, task_name, adId = None):
-        data = {"name":task_name,"adId":adId}
-
+    async def start_socialtasks(self, http_client, task_name, adId = None,verify_code = None):
+        if not verify_code:
+            data = {"name":task_name,"adId":adId}
+        else: 
+            data = {"name":task_name,"adId":adId, "verifyCode": verify_code}
         return await self.make_request(http_client, 'POST'
                                        ,endpoint="/socialtask/start"
                                        ,params = self.params
