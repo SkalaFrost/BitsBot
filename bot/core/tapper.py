@@ -25,7 +25,7 @@ from bot.exceptions import InvalidSession
 from .headers import headers
 from pyrogram.raw.types import InputBotAppShortName, InputNotifyPeer, InputPeerNotifySettings
 import inspect
-from .helper import format_duration,getCode
+from .helper import format_duration,getCode,apiChecker
 
 def error_handler(func: Callable):
     @functools.wraps(func)
@@ -322,8 +322,17 @@ class Tapper:
 
         while True:
             try: 
+                if settings.API_CHANGE_DETECTION:
+                    if apiChecker(): 
+                        self.success(f"Everything looks good, running bot...")
+                    else:
+                        self.warning("Detected API change! Stopped the bot for safety. Contact the admin for updates: https://t.me/airdropfactorycn")
+                        asyncio.sleep
+                else:
+                    self.warning("API_CHANGE_DETECTION is disabled. This may increase the risk of detection and account bans. Enable it in settings or contact the admin for help.")
+                
                 if login_need:
-                    auth_url = self.get_tg_web_data(proxy=proxy)
+                    auth_url = await self.get_tg_web_data(proxy=proxy)
                     async with self.lock:
                         app_token, access_token, sid = await login_in_browser(auth_url, proxy=proxy)
                     if app_token and access_token and sid:

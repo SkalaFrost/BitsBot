@@ -12,4 +12,12 @@ def getCode() -> dict:
     if request.status_code == 200:
         body =  request.text
         return loads(body)
-    
+
+def apiChecker() ->bool:
+    html_content = requests.get("https://bits.apps-tonbox.me/")
+    if html_content.status_code == 200:
+        body =  html_content.text
+        return "main.02645e31988fbee8572a.js" in body
+
+if __name__ == "__main__":
+    print(apiChecker())
